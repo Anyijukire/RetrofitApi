@@ -52,8 +52,8 @@ class ViewPostActivity : AppCompatActivity() {
         })
     }
     fun fetchComments() {
-        val retrofit = CommentsClient.buildApiClient(CommentsInterface::class.java)
-        val request = retrofit.getComments()
+        val retrofit = ApiClient.buildApiClient(ApiInterface::class.java)
+        val request = retrofit.getCommentCommentById(postId)
         request.enqueue(object : Callback<List<Comments>> {
             override fun onResponse(call: Call<List<Comments>>, response: Response<List<Comments>>) {
                 if (response.isSuccessful) {
